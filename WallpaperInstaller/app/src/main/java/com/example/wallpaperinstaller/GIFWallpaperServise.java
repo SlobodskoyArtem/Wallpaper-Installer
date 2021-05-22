@@ -5,9 +5,10 @@ import android.graphics.Movie;
 import android.service.wallpaper.WallpaperService;
 import android.util.Log;
 import android.view.SurfaceHolder;
+import android.os. *;
 
 import java.io.IOException;
-import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 public class GIFWallpaperServise extends WallpaperService {
 
@@ -32,7 +33,7 @@ public class GIFWallpaperServise extends WallpaperService {
 
         public GIFWallpaperEngine(Movie movie) {
             this.movie = movie;
-            handler = new Handler();
+            handler = new android.os.Handler();
         }
 
         @Override
@@ -59,7 +60,7 @@ public class GIFWallpaperServise extends WallpaperService {
                 movie.setTime((int) (System.currentTimeMillis() % movie.duration()));
 
                 handler.removeCallbacks(drqwGIF);
-                handler.postDelayes(drqwGIF, frameDuration);
+                handler.postDelayed(drqwGIF, frameDuration);
             }
         }
 
